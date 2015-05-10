@@ -2,7 +2,6 @@
 
 var redis = require('redis');
 var log = require('util').log;
-var _ = require('underscore');
 var redisClient = redis.createClient();
 
 function cache(mongoose, opts) {
