@@ -1,6 +1,6 @@
 # mongoose-cache
 
-####mongoose-cache is a cache module for mongoose querys base on redis.The node environment is strictly limit to 0.12.x or higher.
+    mongoose-cache is a cache module for mongoose querys base on redis.
 
 
 ##Useage
@@ -10,5 +10,6 @@
     cache(mongoose);
 
 ##Notice
-1. all querys must end with exec,and querys has defaultly been cached to redis store.
+1. All querys must end with exec,and the querys has been cached to redis store.
 2. If config is not set,the expire time is 15 minutes and redis store is localhost:6379.
+3. The node environment is strictly limit to 0.12.x or higher.
