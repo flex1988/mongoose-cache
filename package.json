@@ -1,5 +1,5 @@
 {
-  "name": "mongoose-cache",
+  "name": "mongoose_cache",
   "version": "1.0.0",
   "description": "mongoose cache",
   "main": "index.js",
@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "redis":"*"
-  }
+  },
   "engines": {
     "node": "0.12.0",
     "npm": "2.5.1"
