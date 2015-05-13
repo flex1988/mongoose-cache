@@ -10,11 +10,11 @@ for mongoose querys base on redis.
 
 ##Notice
 
-1.Compatible only with ES6 and koa,
+- Compatible only with ES6 and koa,
     yield a query and end it with exec.
-2.All querys have been defaultly stored in redis store.
-2.If config is not set, the expire time is 15 minutes and redis store is localhost: 6379.
-3.The node environment is strictly limit to 0.12.x or higher.
+- All querys have been defaultly stored in redis store.
+- If config is not set, the expire time is 15 minutes and redis store is localhost: 6379.
+- The node environment is strictly limit to 0.12.x or higher.
 
 ##Example
 
