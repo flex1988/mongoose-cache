@@ -1,4 +1,6 @@
-mongoose - cache is a cache module
+#mongoose
+
+mongoose-cache is a cache module
 for mongoose querys base on redis.
 
 
