@@ -1,20 +1,14 @@
-#mongoose
-
-mongoose-cache is a cache module
-for mongoose querys base on redis.
-
 
 ##Useage
 
     var mongoose = require('mongoose');
     var cache = require('mongoose-cache');
-    cache(mongoose);
+    cache(mongoose,{expire: 900000,host:'127.0.0.1',port:6379});
 
 ##Notice
 
-- Compatible only with ES6 and koa,
-    yield a query and end it with exec.
-- All querys have been defaultly stored in redis store.
+- Compatible only with ES6 and koa,yield a query and end it with exec.
+- All querys defaultly stored in redis.
 - If config is not set, the expire time is 15 minutes and redis store is localhost: 6379.
 - The node environment is strictly limit to 0.12.x or higher.
 
