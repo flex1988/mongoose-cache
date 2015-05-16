@@ -25,6 +25,8 @@
 
     var User=mongoose.model('User',UserSchema);
 
-    var users=yield User.find().exec();
+    var users=yield User.find().cache().exec();
 
-users have been store in redis,any other querys for users will return cached object in redis if the expire time is not exceed.
+    use cache() function to enable cacheing.
+
+Then users have been stored in redis,any other querys for users will return cached object in redis if the expire time is not exceed.
