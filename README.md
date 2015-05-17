@@ -1,7 +1,7 @@
 
 [![Build Status](https://travis-ci.org/flex1988/mongoose-cache.svg?branch=master)](https://travis-ci.org/flex1988/mongoose-cache)
 
-## Useage
+## Usage
 
     var mongoose = require('mongoose');
     var cache = require('mongoose-cache');
