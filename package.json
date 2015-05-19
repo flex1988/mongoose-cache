@@ -1,6 +1,6 @@
 {
   "name": "mongoose_cache",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "mongoose-cache is a cache module for mongoose querys base on redis.",
   "main": "index.js",
   "author": "flex1988",
@@ -11,7 +11,8 @@
     "redis"
   ],
   "dependencies": {
-    "redis":"*"
+    "redis":"*",
+    "debug":"^2.2.0"
   },
   "engines": {
     "node": "0.12.0",

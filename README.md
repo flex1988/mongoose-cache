@@ -16,6 +16,7 @@
 
 ## Example
 
+### Enable cache
     var UserSchema = new Schema({
         name: {
             type: string
@@ -29,6 +30,10 @@
 
     var users=yield User.find().cache().exec();
 
-    use cache() function to enable cacheing.
+    use cache function to enable cacheing.
+
+### Delete cache
+    
+    User.find().delcache().exec();
 
 Then users have been stored in redis,any other querys for users will return cached object in redis if the expire time is not exceed.
