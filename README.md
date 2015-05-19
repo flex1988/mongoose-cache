@@ -32,8 +32,11 @@
 
     use cache function to enable cacheing.
 
+    Then users have been stored in redis,any other querys for users will return cached object in redis if the expire time is not exceed.
+
 ### Delete cache
     
     User.find().delcache().exec();
 
-Then users have been stored in redis,any other querys for users will return cached object in redis if the expire time is not exceed.
+    query for users will be deleted,next query will come from mongodb.
+
