@@ -36,7 +36,7 @@
 
 ### Delete cache
     
-    User.find().delcache().exec();
+    User.find().delcache();
 
     query for users will be deleted,next query will come from mongodb.
 

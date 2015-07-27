@@ -2,7 +2,7 @@
 
 var redis = require('redis');
 var _ = require('underscore');
-var debug=require('debug')('mongoose_cache');
+var debug = require('debug')('mongoose_cache');
 
 function cache(mongoose, opts) {
     var exec = mongoose.Query.prototype.exec;
@@ -22,9 +22,9 @@ function cache(mongoose, opts) {
         var params = arguments;
         return new Promise(function(resolve, reject) {
             if (me.__cache && cacheList[key] && ((new Date).getTime() - cacheList[key].expire < opts.expire)) {
-                 redisClient.get(key, function(err, val) {
+                redisClient.get(key, function(err, val) {
                     if (val) {
-                        debug('object cached key:%s',key);
+                        debug('object cached key:%s', key);
                         var res = JSON.parse(val);
                         if (Array.isArray(res)) {
                             _.each(res, function(item) {
@@ -35,29 +35,27 @@ function cache(mongoose, opts) {
                         }
                         return resolve(res);
                     } else if (err) {
-                        debug('object cached but err happend key:%s',key);
+                        debug('object cached but err happend key:%s', key);
                         return reject(err);
                     }
                 });
             } else if (me.__cache) {
-                debug('object not cached key:%s',key);
+                debug('object not cached key:%s', key);
                 return exec.call(me, function(err, val) {
                     if (err)
                         reject(err);
-                    debug('cache object to redis key:%s',key);
+                    debug('cache object to redis key:%s', key);
                     redisClient.set(key, JSON.stringify(val));
                     cacheList[key] = {};
                     cacheList[key].expire = (new Date).getTime();
                     cacheList[key].proto = Array.isArray(val) ? val[0].__proto__ : val.__proto__;
                     resolve(val);
                 });
-            } 
-            else if(me.__delcache){
-                debug('delete cache key:%s',key);
+            } else if (me.__delcache) {
+                debug('delete cache key:%s', key);
                 return resolve(null);
-            }
-            else if(!me.__cache){
-                debug('cache not enabled key:%s',key);
+            } else if (!me.__cache) {
+                debug('cache not enabled key:%s', key);
                 return exec.call(me, function(err, val) {
                     if (err)
                         reject(err);
@@ -76,7 +74,7 @@ function cache(mongoose, opts) {
 
     var delcache = function() {
         debug('delete cache');
-        this.__delcache=true;
+        this.__delcache = true;
         var key = JSON.stringify({
             modelName: this.model.modelName,
             conditions: this._conditions
@@ -93,4 +91,3 @@ function cache(mongoose, opts) {
 }
 
 exports = module.exports = cache;
-
