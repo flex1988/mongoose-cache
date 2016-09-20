@@ -48,7 +48,7 @@ function cache(mongoose, opts) {
                     redisClient.set(key, JSON.stringify(val));
                     cacheList[key] = {};
                     cacheList[key].expire = (new Date).getTime();
-                    cacheList[key].proto = Array.isArray(val) ? val[0].__proto__ : val.__proto__;
+                    cacheList[key].proto = Array.isArray(val) && !!val.length ? val[0].__proto__ : val.__proto__;
                     resolve(val);
                 });
             } else if (me.__delcache) {
